@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prodi;
 use Illuminate\Http\Request;
 
-class ProdiController extends Controller
+class DosenController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-        
     {
-        $listprodi = Prodi::get();
-        return view("prodi index", ['listprodi' => $listprodi]);
+        //
     }
 
     /**
@@ -22,7 +19,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        return view("prodi.create");
+        //
     }
 
     /**

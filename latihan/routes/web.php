@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\MateriController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +26,12 @@ Route::get('/berita/{id}/{judul}',function ($id, $judul){
 
 //membuat route ke halaman prodi index melalui controller ProdiController
 Route::get('/prodi/index', action: [ProdiController::class,'index']);
+
+Route::resource('materi', MateriController::class);
+Route::resource('prodi', ProdiController::class);
+Route::resource('fakultas', FakultasController::class);
+Route::resource('mhs', MahasiswaController::class); // ganti dari 'mahasiswa' ke 'mhs'
+Route::resource('dosen', DosenController::class);
 
 
 
