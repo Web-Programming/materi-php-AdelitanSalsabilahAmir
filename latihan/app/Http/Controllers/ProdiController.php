@@ -11,10 +11,9 @@ class ProdiController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-        
     {
         $listprodi = Prodi::get();
-        return view("prodi index", ['listprodi' => $listprodi]);
+        return view("prodi.index",['listprodi' => $listprodi]);
     }
 
     /**
@@ -22,7 +21,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        return view("prodi.create");
+         return view("prodi.create");
     }
 
     /**
@@ -30,20 +29,17 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request ->$validdate
-        ('nama' => 'required|min:5|max:20',
-        'kode_prodi' => 'required|min:2|max:2'
-        );
+        $validateData = $request->validate([
+            'nama' => 'required|min:5|max:20',
+            'kode_prodi' => 'required|min:2|max:2'
+            ]);
 
-        $prodi = new Prodi();
-        $prodi->nama = $validateData['nama'];
-        $request->nama
-        $prodi->kode_prodi = $validateData
-        ['kode_prodi'];
-        $prodi->save();
+            $prodi = new Prodi();
+            $prodi->nama = $validateData['nama'];//
+            $prodi->kode_prodi = $validateData['kode_prodi'];
+            $prodi->save();
 
-        return redirect("prodi")->with("status",
-        "Data Program Studi berhasil disimpan");
+            return redirect("prodi")->with("status","Data Program Studi Berhasil Disimpan");
     }
 
     /**
@@ -51,7 +47,8 @@ class ProdiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $prodi = Prodi::find($id);
+        return view("prodi.detail", ['detailprodi' => $prodi]);
     }
 
     /**
@@ -59,7 +56,8 @@ class ProdiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $prodi = Prodi::find($id);
+        return view("prodi.edit", ['editprodi' => $prodi]);
     }
 
     /**
