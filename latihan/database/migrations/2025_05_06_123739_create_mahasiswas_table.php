@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
     Schema::create('mahasiswas', function (Blueprint $table) {
     $table->id();
@@ -17,10 +17,9 @@ return new class extends Migration
     $table->string('nama',100);
     $table->string('tempat_lahir',50);
     $table->date('tanggal_lahir'); //yyyy-mm-dd
-    $table->timestamps(); //create_at dan updated_at
-        });
+    $table->timestamps();//created_at dan updated_at
+    });
     }
-
     /**
      * Reverse the migrations.
      */

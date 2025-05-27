@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', "Halaman List Prodi")
+@section('title', "Halaman Create Prodi")
 
 @section('content')
         <!--begin::App Content Header-->
@@ -56,39 +56,37 @@
                   </div>
                   <div class="card-body">
                     @if (session('status'))
-                        <div class ="alertalert-success">
-                            {{ session('status') }}
-                        </div>
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
                     @endif
-                    <form method="post" action="{{ url("prodi/store") }}">
+                    <form method="post" action="{{ url("prodi") }}" 
+                    enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
                         <label >Nama Prodi</label>
-                        <input type="text" name="nama" class="form-control" value="{{ old ('nama') }}">
+                        <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
                         @error('nama')
-                            <div class="text-danger">{{ $message }}</div>
-                          @enderror
-                    </div>
+                          <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
                       <div class="mb-3">
                         <label>Kode Prodi</label>
                         <input type="text" name="kode_prodi" class="form-control" value="{{ old('kode_prodi') }}">
                         @error('kode_prodi')
-                            <div class="test-danger">{{ $message }}</div>
-                            @enderror
+                          <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                      </div>
+
+                      <div class="mb-3">
+                        <label>Logo Prodi</label>
+                        <input type="file" name="logo" class="form-control">
+                        @error('logo')
+                          <div class="text-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                       <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
-
-
-
-
-
-
-
-
-
-
-                    
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">Footer</div>

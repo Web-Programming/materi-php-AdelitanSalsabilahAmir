@@ -33,7 +33,7 @@
                 <!-- Default box -->
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Program Studi : {{ $prodi->nama }}</h3>
+                    <h3 class="card-title">Detail Program Studi</h3>
                     <div class="card-tools">
                       <button
                         type="button"
@@ -55,10 +55,13 @@
                     </div>
                   </div>
                   <div class="card-body">
+                    
                     ID Prodi : {{ $prodi->id }} <br>
+                    Nama Prodi : {{ $prodi->nama }} <br>
                     Kode Prodi : {{ $prodi->kode_prodi }} <br>
                     Tanggal Buat : {{ $prodi->created_at }} <br>
                     Tanggal Update : {{ $prodi->updated_at }} <br>
+                    
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">Footer</div>
@@ -73,3 +76,4 @@
         </div>
         <!--end::App Content-->
 @endsection
+
